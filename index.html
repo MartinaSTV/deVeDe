@@ -8,18 +8,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header><h1>DeVeDe Mina Favorit Filmer</h1></header>
+    <header><h1>De-Ve-De</h1></header>
     <main>
         <h2>Spara dina favorit filmer</h2>
-        <input type="text" placeholder="titel" id="title">
-        <input type="text" placeholder="genre" id="genre">
-        <input type="number" placeholder="utgivningsdatum" id="date">
-        <input type="text" placeholder="search title">
-        <button id="search">Sök efter Film</button>
+        <input type="text" placeholder="titel" id="title" onfocus="this.value=''">
+        <input type="text" placeholder="genre" id="genre" onfocus="this.value=''">
+        <input type="number" placeholder="utgivningsdatum" id="date" onfocus="this.value=''">
+        
+      
         <button id="btnAdd">Lägg till i lista</button>
         <button id="show">Visa Film Lista</button>
+        <section>
+            <section id="searchList"></section>
+            <input type="text" placeholder="search title">
+            <button id="search">Sök efter Film</button>
+        </section>
         <section id="movieList"></section>
+       
     </main>
+    <footer><img src="img/popcorn1.jpg" alt=""></footer>
+    
     
     <script type="module" src="js/script.js"></script>
 </body>

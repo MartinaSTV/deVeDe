@@ -4,6 +4,7 @@ import {saveToDatabase, displayMovieList } from './firebase.js'
 // delat upp js koden i två moduler för att få en mer lättläst kod som inte är 
 //för lång och som är tydligt delat i olika sectioner efter innehåll.
 
+// ToDo
  // spara i värdet från input i variabler
  // click funktion för att spara 
  // spara ner i databasen
@@ -34,6 +35,7 @@ import {saveToDatabase, displayMovieList } from './firebase.js'
       await saveToDatabase(movie)
 
      });
+  
  }
  clickSave()
 
@@ -42,8 +44,17 @@ function displayMovieListBtn(){
   btnShowList.addEventListener('click', async () =>{
 
     await displayMovieList()
+    hideShow()
+
   })
 }
 displayMovieListBtn()
 
-
+function hideShow() {
+  let showList = document.querySelector('#movieList')
+  if (showList.style.display === "none") {
+    showList.style.display = "block";
+  } else {
+    showList.style.display = "none";
+  }
+}

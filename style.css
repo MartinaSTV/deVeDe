@@ -3,6 +3,48 @@
     margin: 0;
     padding: 0;
 }
-main{
+header{
+    width: 100vw;
     background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+}
+h1{
+    padding: 1rem;
+}
+
+body{
+    background-color: antiquewhite;
+}
+main{
+    background-color: rgb(156, 50, 50);
+    
+}
+button{
+    padding: 0.3rem;
+    margin: 0.3rem;
+}
+#movieList{
+    display: none;
+}
+footer{
+    background: url(/img/denise\ 1.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.articleList{
+    background-color: antiquewhite;
+    margin: 0.5rem;
+}
+h2{
+    padding: 0.5rem;
+}
+input{
+    margin: 0.5rem;
+}
+p{
+    padding: 0.3rem;
+}
+img{
+    width: 100%;
 }
