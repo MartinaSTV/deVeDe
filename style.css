@@ -48,3 +48,10 @@ p{
 img{
     width: 100%;
 }
+.headingTwo{
+    color: antiquewhite;
+}
+#searchList{
+    background-color: rgb(10, 5, 5);
+    color: wheat;
+}

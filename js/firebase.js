@@ -1,6 +1,7 @@
  // Import the functions you need from the SDKs you need
  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
  import { getFirestore, collection, addDoc, getDocs, query, where, doc, deleteDoc} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+ import {} from './script.js'
  // TODO: Add SDKs for Firebase products that you want to use
  // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -27,7 +28,6 @@
           console.log('Error', error)
       }
   };
-
 
 async function displayMovieList(){
   let sectionElem = document.querySelector('#movieList')
@@ -74,9 +74,9 @@ async function deleteFromMovieList(idButton){
        console.log('Error:', error)
     }
 }
-  //check if movie exist. getDocs - query-where - show specifik result
+  //check if movie exist. getDocs - query-where - show specifik result/ if else
 
-async function searchList(){
+async function searchList(movie){
     const searchInput = document.querySelector('#search')
     const searchValue = searchInput.value
     console.log(searchValue)
@@ -86,24 +86,27 @@ async function searchList(){
         const resultReturn = {} // ett tomt block där result ska skickas in?
     
         result.forEach((resultR)=>{
+            console.log(resultR)
             resultReturn = resultR
+            console.log(resultReturn)
     
         })
+        
         return resultReturn
            
     }catch(error){
         console.log('Error:',error)
     }
- 
-   
 }
-searchList()
 
-async function displaySearchResult(resultReturn){
-    
-    let ExistInList = await searchList(resultReturn)
-    
+/* async function displaySearchResult(resultReturn){
+
     let searchList = document.querySelector('#searchList')
+
+    let ExistInList = await searchList(resultReturn)
+    let idFB = ExistInList.id 
+    
+     if (idFB){
 
         let searchElem = `<article><h2>${resultR.data().titleValue}</h2><p>${resultReturn.data().genreValue}</p>
         <p>${resultReturn.data().dateValue}</p></article>
@@ -111,15 +114,18 @@ async function displaySearchResult(resultReturn){
         `
         searchList.insertAdjacentHTML('beforeend', searchElem);
 
-}
-
+     }else{
+        searchList.innerText = 'Din film finns ej med i listan'
+    }      
+} */
 
 function searchMovie(){
     let searchBtn = document.querySelector('#search')
     searchBtn.addEventListener('click', async ()=>{
   
-      //await searchList()
-      displaySearchResult()
+        console.log('click')
+        await searchList()
+      //displaySearchResult()
   
     })
       
@@ -127,4 +133,4 @@ function searchMovie(){
   searchMovie()
   
 
-  export {saveToDatabase, displayMovieList, deleteFromMovieList}
+  export {saveToDatabase, displayMovieList, deleteFromMovieList, searchMovie}
