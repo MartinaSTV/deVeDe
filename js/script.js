@@ -1,8 +1,11 @@
 
-import {saveToDatabase, displayMovieList } from './firebase.js'
+import {saveToDatabase, displayMovieList, displaySearchResult, searchList, deleteFromMovieList} from './firebase.js'
 
-// delat upp js koden i två moduler för att få en mer lättläst kod som inte är 
-//för lång och som är tydligt delat i olika sectioner efter innehåll.
+/* Delat upp js koden i två moduler för att få en mer lättläst kod som inte är 
+för lång och som är tydligt delat i olika sectioner efter innehåll.
+ I denna modulen ligger alla knappar och dess lyssnare. 
+ I den andra modulen firebase.js ligger funktionerna som jobbar emot firease och 
+ även display funktionerna som visar på sida */
 
 // ToDo
  // spara i värdet från input i variabler
@@ -56,3 +59,32 @@ function hideShow() {
   showList.classList.toggle('hide');
 }
 export {}
+
+function clickdelete(){
+  const btnRemove = document.querySelectorAll('#remove')
+  console.log(btnRemove)
+
+  btnRemove.forEach((remove) =>{
+      remove.addEventListener('click', async (event)=>{
+
+          const idButton = event.target.getAttribute('data-ID')//hämtar ID från databas i getAttribute från knappen.
+          await deleteFromMovieList(idButton)
+          displayMovieList()
+          console.log(idButton)
+      })
+  });
+}
+
+function searchMovie(){
+  let searchBtn = document.querySelector('#search')
+  searchBtn.addEventListener('click', async ()=>{
+
+      console.log('click')
+      const result = await searchList()
+      displaySearchResult(result)
+  })
+    
+}
+searchMovie()
+
+export {clickdelete}

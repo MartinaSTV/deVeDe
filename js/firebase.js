@@ -1,7 +1,7 @@
  // Import the functions you need from the SDKs you need
  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
  import { getFirestore, collection, addDoc, getDocs, query, where, doc, deleteDoc} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
- import {} from './script.js'
+ import {clickdelete} from './script.js'
  // TODO: Add SDKs for Firebase products that you want to use
  // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -48,21 +48,6 @@ async function displayMovieList(){
  }
 }
 
-function clickdelete(){
-    const btnRemove = document.querySelectorAll('#remove')
-    console.log(btnRemove)
-  
-    btnRemove.forEach((remove) =>{
-        remove.addEventListener('click', async (event)=>{
-  
-            const idButton = event.target.getAttribute('data-ID')//hämtar ID från databas i getAttribute från knappen.
-            await deleteFromMovieList(idButton)
-            displayMovieList()
-            console.log(idButton)
-        })
-    });
-  }
-
 async function deleteFromMovieList(idButton){
     console.log(idButton)
 
@@ -88,7 +73,6 @@ async function searchList(movie){
             resultReturn = resultR
             console.log(resultReturn)
         })
-        
         return resultReturn
            
     }catch(error){
@@ -100,7 +84,6 @@ async function searchList(movie){
    async function displaySearchResult(movie){
 
     let searchList = document.querySelector('#searchList')
-     
     let movieID = movie.id
 
      if (movieID){
@@ -116,19 +99,4 @@ async function searchList(movie){
     }      
 };
 
-//Knapp till visa sökning på film
-function searchMovie(){
-    let searchBtn = document.querySelector('#search')
-    searchBtn.addEventListener('click', async ()=>{
-  
-        console.log('click')
-        const result = await searchList()
-        displaySearchResult(result)
-  
-    })
-      
-  }
-  searchMovie()
-  
-
-  export {saveToDatabase, displayMovieList, deleteFromMovieList, searchMovie}
+  export {saveToDatabase, displayMovieList, deleteFromMovieList, displaySearchResult, searchList}
