@@ -23,6 +23,9 @@ main{
 button{
     padding: 0.3rem;
     margin: 0.3rem;
+    background-color: black;
+    color: antiquewhite;
+    border-radius: 5px;
 }
 
 footer{

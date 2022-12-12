@@ -87,7 +87,6 @@ async function searchList(movie){
             console.log(resultR)
             resultReturn = resultR
             console.log(resultReturn)
-    
         })
         
         return resultReturn
