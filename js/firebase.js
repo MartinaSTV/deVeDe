@@ -34,7 +34,6 @@ async function displayMovieList(){
   sectionElem.innerHTML = ``
   try{
     let Movielist =  await getDocs(collection(db, 'movie'))
-   
      Movielist.forEach((title) => {
   
         let titleList = `<article class="articleList"><h2>${title.data().titleValue}</h2><p>${title.data().genreValue}</p>
@@ -77,13 +76,13 @@ async function deleteFromMovieList(idButton){
   //check if movie exist. getDocs - query-where - show specifik result/ if else
 
 async function searchList(movie){
-    const searchInput = document.querySelector('#search')
+    const searchInput = document.querySelector('#inputSearch')
     const searchValue = searchInput.value
     console.log(searchValue)
     try{
         const movieSearch = query (collection(db, 'movie'), where( 'titleValue', '==', searchValue)) // titleValue är namnet i databasen. searchvlue är namet som skrivs in i inpurfältet.
         const result = await getDocs(movieSearch)
-        const resultReturn = {} // ett tomt block där result ska skickas in?
+        let resultReturn = {} // ett tomt block där result ska skickas in?
     
         result.forEach((resultR)=>{
             console.log(resultR)
@@ -99,17 +98,14 @@ async function searchList(movie){
     }
 }
 
-/* async function displaySearchResult(resultReturn){
+   async function displaySearchResult(movie){
 
     let searchList = document.querySelector('#searchList')
 
-    let ExistInList = await searchList(resultReturn)
-    let idFB = ExistInList.id 
-    
-     if (idFB){
+     if (movie){
 
-        let searchElem = `<article><h2>${resultR.data().titleValue}</h2><p>${resultReturn.data().genreValue}</p>
-        <p>${resultReturn.data().dateValue}</p></article>
+        let searchElem = `<article><h2>${movie.data().titleValue}</h2><p>${movie.data().genreValue}</p>
+        <p>${movie.data().dateValue}</p></article>
         
         `
         searchList.insertAdjacentHTML('beforeend', searchElem);
@@ -117,15 +113,15 @@ async function searchList(movie){
      }else{
         searchList.innerText = 'Din film finns ej med i listan'
     }      
-} */
+}
 
 function searchMovie(){
     let searchBtn = document.querySelector('#search')
     searchBtn.addEventListener('click', async ()=>{
   
         console.log('click')
-        await searchList()
-      //displaySearchResult()
+        const result = await searchList()
+        displaySearchResult(result)
   
     })
       

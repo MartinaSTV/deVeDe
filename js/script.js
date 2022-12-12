@@ -12,7 +12,7 @@ import {saveToDatabase, displayMovieList } from './firebase.js'
  // Ta bort från listan 
  // söka i Listan Query/where
  // skriv ut din sökning. 
- // lägg k moduler för att lättare läsa koden. 
+ // lägg i moduler för att lättare läsa koden. 
 
  const title = document.querySelector('#title')
  const genre = document.querySelector('#genre')
@@ -42,7 +42,7 @@ import {saveToDatabase, displayMovieList } from './firebase.js'
 function displayMovieListBtn(){
   let btnShowList = document.querySelector('#show')
   btnShowList.addEventListener('click', async () =>{
-
+    
     await displayMovieList()
     hideShow()
 
@@ -52,10 +52,7 @@ displayMovieListBtn()
 
 function hideShow() {
   let showList = document.querySelector('#movieList')
-  if (showList.style.display === "none") {
-    showList.style.display = "block";
-  } else {
-    showList.style.display = "none";
-  }
+
+  showList.classList.toggle('hide');
 }
 export {}

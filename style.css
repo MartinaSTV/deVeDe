@@ -24,9 +24,7 @@ button{
     padding: 0.3rem;
     margin: 0.3rem;
 }
-#movieList{
-    display: none;
-}
+
 footer{
     background: url(/img/denise\ 1.jpg);
     background-position: center;
@@ -54,4 +52,8 @@ img{
 #searchList{
     background-color: rgb(10, 5, 5);
     color: wheat;
+}
+
+.hide {
+    display: none;
 }
