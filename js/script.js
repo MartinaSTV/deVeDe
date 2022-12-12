@@ -36,7 +36,10 @@ för lång och som är tydligt delat i olika sectioner efter innehåll.
     movie.genreValue = genre.value
     movie.dateValue = date.value
       await saveToDatabase(movie)
-
+      await displayMovieList()
+      title.value = ``
+      genre.value = ``
+      date.value = 0
      });
   
  }
@@ -46,7 +49,7 @@ function displayMovieListBtn(){
   let btnShowList = document.querySelector('#show')
   btnShowList.addEventListener('click', async () =>{
     
-    await displayMovieList()
+    displayMovieList()
     hideShow()
 
   })
@@ -55,7 +58,6 @@ displayMovieListBtn()
 
 function hideShow() {
   let showList = document.querySelector('#movieList')
-
   showList.classList.toggle('hide');
 }
 export {}
@@ -83,7 +85,6 @@ function searchMovie(){
       const result = await searchList()
       displaySearchResult(result)
   })
-    
 }
 searchMovie()
 
