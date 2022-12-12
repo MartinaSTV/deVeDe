@@ -73,8 +73,7 @@ async function deleteFromMovieList(idButton){
        console.log('Error:', error)
     }
 }
-  //check if movie exist. getDocs - query-where - show specifik result/ if else
-
+//check if movie exist.
 async function searchList(movie){
     const searchInput = document.querySelector('#inputSearch')
     const searchValue = searchInput.value
@@ -98,11 +97,14 @@ async function searchList(movie){
     }
 }
 
+   // visa sökning, finns filmen visa resultat, om inte säg film finns ej.
    async function displaySearchResult(movie){
 
     let searchList = document.querySelector('#searchList')
+     
+    let movieID = movie.id
 
-     if (movie){
+     if (movieID){
 
         let searchElem = `<article><h2>${movie.data().titleValue}</h2><p>${movie.data().genreValue}</p>
         <p>${movie.data().dateValue}</p></article>
@@ -113,8 +115,9 @@ async function searchList(movie){
      }else{
         searchList.innerText = 'Din film finns ej med i listan'
     }      
-}
+};
 
+//Knapp till visa sökning på film
 function searchMovie(){
     let searchBtn = document.querySelector('#search')
     searchBtn.addEventListener('click', async ()=>{
