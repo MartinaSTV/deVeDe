@@ -1,3 +1,8 @@
+ /* Delat upp js koden i två moduler för att få en mer lättläst kod och som är tydligt delat i olika sectioner efter innehåll.
+ I denna modulen ligger funktionerna som jobbar emot firease och 
+ även display funktionerna som visar informtionen på sidan 
+ I den andra modulen ligger alla knappar och dess lyssnare.*/
+
  // Import the functions you need from the SDKs you need
  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
  import { getFirestore, collection, addDoc, getDocs, query, where, doc, deleteDoc} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
@@ -88,7 +93,7 @@ async function searchList(movie){
 
      if (movieID){
 
-        let searchElem = `<article><h2>${movie.data().titleValue}</h2><p>${movie.data().genreValue}</p>
+        let searchElem = `<article class="articleSearch"><h2>${movie.data().titleValue}</h2><p>${movie.data().genreValue}</p>
         <p>${movie.data().dateValue}</p></article>
         
         `

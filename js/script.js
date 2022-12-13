@@ -1,21 +1,20 @@
 
 import {saveToDatabase, displayMovieList, displaySearchResult, searchList, deleteFromMovieList} from './firebase.js'
 
-/* Delat upp js koden i två moduler för att få en mer lättläst kod som inte är 
-för lång och som är tydligt delat i olika sectioner efter innehåll.
+/* Delat upp js koden i två moduler för att få en mer lättläst kod och som är tydligt delat i olika sectioner efter innehåll.
  I denna modulen ligger alla knappar och dess lyssnare. 
  I den andra modulen firebase.js ligger funktionerna som jobbar emot firease och 
- även display funktionerna som visar på sida */
+ även display funktionerna som visar informtionen på sidan */
 
 // ToDo
  // spara i värdet från input i variabler
  // click funktion för att spara 
  // spara ner i databasen
- // Kunna se din film lista
+ // visa din film lista
  // Ta bort från listan 
  // söka i Listan Query/where
  // skriv ut din sökning. 
- // lägg i moduler för att lättare läsa koden. 
+ // dela upp i moduler. 
 
  const title = document.querySelector('#title')
  const genre = document.querySelector('#genre')
